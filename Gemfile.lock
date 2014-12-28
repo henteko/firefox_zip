@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     firefox_zip (0.0.0)
+      rubyzip
 
 GEM
   remote: http://production.cf.rubygems.org/
@@ -20,6 +21,7 @@ GEM
     rspec-mocks (3.1.3)
       rspec-support (~> 3.1.0)
     rspec-support (3.1.2)
+    rubyzip (1.1.6)
 
 PLATFORMS
   ruby
