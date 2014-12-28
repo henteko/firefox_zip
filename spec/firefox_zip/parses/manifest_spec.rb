@@ -36,5 +36,11 @@ describe FirefoxZip::Parses::Manifest do
     it 'get permissions' do
       expect(@manifest.permissions).to match []
     end
+    
+    it 'nil' do
+      manifest = FirefoxZip::Parses::Manifest.new(File.expand_path('nil', __FILE__))
+      
+      expect(manifest.name).to be_nil
+    end
   end
 end

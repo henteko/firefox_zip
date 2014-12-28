@@ -1,5 +1,6 @@
 require 'zip'
 require 'firefox_zip/parses/manifest'
+require 'firefox_zip/files/manifest'
 
 module FirefoxZip
   class << self
