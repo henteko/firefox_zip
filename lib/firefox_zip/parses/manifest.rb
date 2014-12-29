@@ -10,6 +10,7 @@ module FirefoxZip
         
         file = File.open(file_path, 'r')
         data = JSON.parse(file.read)
+        file.close
         
         @name = data['name']
         @description = data['description']
