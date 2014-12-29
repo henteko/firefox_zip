@@ -1,6 +1,5 @@
 require 'zip'
 require 'firefox_zip/parses/manifest'
-require 'firefox_zip/files/manifest'
 require 'firefox_zip/files/project'
 
 module FirefoxZip
