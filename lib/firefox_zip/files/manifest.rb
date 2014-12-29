@@ -1,4 +1,4 @@
-require 'tempfile'
+require 'tmpdir'
 
 module FirefoxZip
   module Files
@@ -7,12 +7,15 @@ module FirefoxZip
       
       def self.get(file_path)
         return nil unless File.exists? file_path
-        
-        entry = Manifest.get_entry(file_path, "*/#{FILE_NAME}")
-        file = Tempfile.new(FILE_NAME)
-        file.write(entry.get_input_stream.read)
-        
-        file
+
+        Dir.mktmpdir do |dir|
+          entry = Manifest.get_entry(file_path, "*/#{FILE_NAME}")
+
+          file = File.open("#{dir}/#{FILE_NAME}", 'w')
+          file.write(entry.get_input_stream.read)
+          file.close
+          return File.open(file.path, 'r')
+        end
       end
       
       private
