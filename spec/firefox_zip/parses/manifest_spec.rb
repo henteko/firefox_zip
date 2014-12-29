@@ -38,9 +38,7 @@ describe FirefoxZip::Parses::Manifest do
     end
     
     it 'nil' do
-      manifest = FirefoxZip::Parses::Manifest.new(File.expand_path('nil', __FILE__))
-      
-      expect(manifest.name).to be_nil
+      expect{ FirefoxZip::Parses::Manifest.new(File.expand_path('nil', __FILE__)) }.to raise_error
     end
   end
 end
