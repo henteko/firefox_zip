@@ -1,4 +1,5 @@
 require 'tmpdir'
+require 'zip'
 
 module FirefoxZip
   module Files
