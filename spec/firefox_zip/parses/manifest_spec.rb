@@ -3,7 +3,10 @@ require 'spec_helper'
 describe FirefoxZip::Parses::Manifest do
   context 'initialize' do
     before do
-      @manifest = FirefoxZip::Parses::Manifest.new(File.expand_path('../../../test_files/manifest.webapp', __FILE__))
+      file = File.open(File.expand_path('../../../test_files/manifest.webapp', __FILE__), 'r')
+      @manifest = FirefoxZip::Parses::Manifest.new(file.read)
+      
+      file.close
     end
     
     it 'get name' do
@@ -37,8 +40,8 @@ describe FirefoxZip::Parses::Manifest do
       expect(@manifest.permissions).to match []
     end
     
-    it 'nil' do
-      expect{ FirefoxZip::Parses::Manifest.new(File.expand_path('nil', __FILE__)) }.to raise_error
+    it 'blank' do
+      expect{ FirefoxZip::Parses::Manifest.new('') }.to raise_error
     end
   end
 end

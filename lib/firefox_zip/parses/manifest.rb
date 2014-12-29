@@ -5,13 +5,9 @@ module FirefoxZip
     class Manifest
       attr_reader :name, :description, :launch_path, :icons, :icon, :type, :permissions
 
-      def initialize(file_path)
-        return raise 'not manifest file' unless File.exists? file_path
-        
-        file = File.open(file_path, 'r')
-        data = JSON.parse(file.read)
-        file.close
-        
+      def initialize(manifest_data)
+        data = JSON.parse(manifest_data)
+
         @name = data['name']
         @description = data['description']
         @launch_path = data['launch_path']
