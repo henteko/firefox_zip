@@ -1,4 +1,5 @@
 # Firefox Zip
+[![Build Status](https://travis-ci.org/henteko/firefox_zip.svg?branch=master)](https://travis-ci.org/henteko/firefox_zip)
 
 This gem library is Firefox os application package file (.zip) analyzer. you can read any information of zip files.
 
