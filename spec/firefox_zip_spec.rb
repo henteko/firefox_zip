@@ -33,6 +33,26 @@ describe FirefoxZip do
     it 'get permissions' do
       expect(@app.permissions).to match []
     end
+
+    it 'get developer' do
+      expect(@app.developer).not_to be_nil
+    end
+
+    it 'get locales' do
+      expect(@app.locales).not_to be_nil
+    end
+    
+    it 'get default_locale' do
+      expect(@app.default_locale).not_to be_nil
+    end
+
+    it 'get version' do
+      expect(@app.version).not_to be_nil
+    end
+
+    it 'get size' do
+      expect(@app.size).not_to be_nil
+    end
     
     it 'raise' do
       expect{ FirefoxZip.analyze('') }.to raise_error

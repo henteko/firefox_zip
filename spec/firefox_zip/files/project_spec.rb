@@ -21,6 +21,11 @@ describe FirefoxZip::Files::Project do
       expect(@project.icons.class).to eq Array
     end
 
+    it 'get size' do
+      expect(@project.size).not_to be_nil
+      expect(@project.size.class).to eq Fixnum
+    end
+
     it 'nil' do
       expect{ FirefoxZip::Files::Project.new(File.expand_path('nil', __FILE__)) }.to raise_error
     end
