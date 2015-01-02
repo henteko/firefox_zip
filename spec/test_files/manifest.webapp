@@ -12,7 +12,7 @@
     "name": "henteko",
     "url": "http://henteko07.com"
   },
-  "type": "privileged",
+  "type": "web",
   "permissions": {},
   "default_locale": "ja",
   "locales": {

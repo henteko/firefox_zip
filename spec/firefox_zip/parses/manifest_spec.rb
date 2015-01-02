@@ -33,7 +33,7 @@ describe FirefoxZip::Parses::Manifest do
     end
     
     it 'get type' do
-      expect(@manifest.type).to eq 'privileged'
+      expect(@manifest.type).to eq 'web'
     end
     
     it 'get permissions' do

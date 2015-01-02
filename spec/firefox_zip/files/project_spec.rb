@@ -3,7 +3,7 @@ require 'spec_helper'
 describe FirefoxZip::Files::Project do
   context 'initialize' do
     before do
-      @project = FirefoxZip::Files::Project.new(File.expand_path('../../../test_files/hello.zip', __FILE__))
+      @project = FirefoxZip::Files::Project.new(File.expand_path('../../../test_files/package.zip', __FILE__))
     end
 
     it 'get manifest data' do

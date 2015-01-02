@@ -3,7 +3,7 @@ require 'spec_helper'
 describe FirefoxZip do
   context 'self.analyze' do
     before do
-      @app = FirefoxZip.analyze(File.expand_path('../test_files/hello.zip', __FILE__))
+      @app = FirefoxZip.analyze(File.expand_path('../test_files/package.zip', __FILE__))
     end
     
     it 'get name' do
@@ -27,7 +27,7 @@ describe FirefoxZip do
     end
 
     it 'get type' do
-      expect(@app.type).to eq 'privileged'
+      expect(@app.type).to eq 'web'
     end
 
     it 'get permissions' do

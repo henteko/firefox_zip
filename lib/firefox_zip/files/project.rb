@@ -14,24 +14,17 @@ module FirefoxZip
         @size = File.size(@zip_file_path)
 
         Dir.mktmpdir do |dir|
-          project_dir_name = get_root_dir_name(@zip_file_path)
           make_zip_files(@zip_file_path, dir)
           
-          manifest_file = get_manifest_file(dir, project_dir_name)
+          manifest_file = get_manifest_file(dir)
           @manifest_data = FirefoxZip::Parses::Manifest.new(manifest_file.read)
           manifest_file.close
-          @icons = get_icons_file(@manifest_data, dir, project_dir_name)
-          @icon = get_icon_file(@manifest_data, dir, project_dir_name)
+          @icons = get_icons_file(@manifest_data, dir)
+          @icon = get_icon_file(@manifest_data, dir)
         end
       end
 
       private
-      
-      def get_root_dir_name(file_path)
-        Zip::File.open(file_path) do |zip_file|
-          return zip_file.first.name
-        end
-      end
       
       def make_zip_files(file_path, dir)
         Zip::File.open(file_path) do |zip_file|
@@ -55,15 +48,15 @@ module FirefoxZip
         entry_name.match(/.+\/$/) != nil
       end
       
-      def get_manifest_file(dir, project_dir_name)
-        File.open("#{dir}/#{project_dir_name}/#{MANIFEST_FILE_NAME}", 'r')
+      def get_manifest_file(dir)
+        File.open("#{dir}/#{MANIFEST_FILE_NAME}", 'r')
       end
       
-      def get_icon_file(manifest_data, dir, project_dir_name)
-        get_file(dir, project_dir_name, manifest_data.icon)
+      def get_icon_file(manifest_data, dir)
+        get_file(dir, manifest_data.icon)
       end
       
-      def get_icons_file(manifest_data, dir, project_dir_name)
+      def get_icons_file(manifest_data, dir)
         icons = manifest_data.icons
         
         icons_file = []
@@ -74,15 +67,15 @@ module FirefoxZip
 
           icons_file.push({
                               :size => icon_size,
-                              :file => get_file(dir, project_dir_name, icon_file_name)
+                              :file => get_file(dir, icon_file_name)
                           })
         end
         
         icons_file
       end
       
-      def get_file(dir, project_dir_name, target_file_name)
-        File.open("#{dir}/#{project_dir_name}#{target_file_name}", 'r')
+      def get_file(dir, target_file_name)
+        File.open("#{dir}/#{target_file_name}", 'r')
       end
     end
   end

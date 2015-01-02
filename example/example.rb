@@ -1,6 +1,6 @@
 require 'firefox_zip'
 
-app = FirefoxZip.analyze(File.expand_path('../hello.zip', __FILE__))
+app = FirefoxZip.analyze(File.expand_path('../package.zip', __FILE__))
 
 p app.name        # [String] app name
 p app.description # [String] app description
