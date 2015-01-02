@@ -29,7 +29,7 @@ describe FirefoxZip::Parses::Manifest do
     end
     
     it 'get icon' do
-      expect(@manifest.icon).to eq "/icons/icon16x16.png"
+      expect(@manifest.icon).to eq "/icons/icon128x128.png"
     end
     
     it 'get type' do
