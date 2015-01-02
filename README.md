@@ -32,7 +32,7 @@ app.locales        # [Hash] app locales
 app.type           # [String] app type
 app.permissions    # [Array] app permissions
 app.version        # [String] app version
-app.size           # [Float] app zip file size
+app.size           # [Fixnum] app zip file size
 ```
 
 ## License

@@ -6,7 +6,7 @@ module FirefoxZip
     attr_reader :name, :description, :launch_path,
                 :icons, :icon, :type, :permissions,
                 :developer, :locales, :default_locale,
-                :version
+                :version, :size
 
     def analyze(file_path)
       project = Files::Project.new(file_path)
@@ -21,6 +21,7 @@ module FirefoxZip
       @locales = project.manifest_data.locales
       @default_locale = project.manifest_data.default_locale
       @version = project.manifest_data.version
+      @size = project.size
 
       self
     end

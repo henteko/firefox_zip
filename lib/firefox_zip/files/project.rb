@@ -4,13 +4,14 @@ require 'zip'
 module FirefoxZip
   module Files
     class Project
-      attr_reader :manifest_data, :icon, :icons
+      attr_reader :manifest_data, :icon, :icons, :size
       MANIFEST_FILE_NAME = 'manifest.webapp'
 
       def initialize(zip_file_path)
         return raise 'not zip file' unless File.exists? zip_file_path
 
         @zip_file_path = zip_file_path
+        @size = File.size(@zip_file_path)
 
         Dir.mktmpdir do |dir|
           project_dir_name = get_root_dir_name(@zip_file_path)

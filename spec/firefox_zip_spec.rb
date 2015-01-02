@@ -49,6 +49,10 @@ describe FirefoxZip do
     it 'get version' do
       expect(@app.version).not_to be_nil
     end
+
+    it 'get size' do
+      expect(@app.size).not_to be_nil
+    end
     
     it 'raise' do
       expect{ FirefoxZip.analyze('') }.to raise_error
