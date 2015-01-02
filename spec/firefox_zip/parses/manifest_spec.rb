@@ -53,6 +53,11 @@ describe FirefoxZip::Parses::Manifest do
       expect(@manifest.default_locale).to eq 'ja'
     end
 
+    it 'get version' do
+      expect(@manifest.version).to eq 1.0
+      expect(@manifest.version.class).to eq Float
+    end
+
     it 'blank' do
       expect{ FirefoxZip::Parses::Manifest.new('') }.to raise_error
     end
