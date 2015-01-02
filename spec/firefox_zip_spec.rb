@@ -54,6 +54,18 @@ describe FirefoxZip do
       expect(@app.size).not_to be_nil
     end
     
+    it 'to_hash' do
+      expect(@app.to_hash.class).to eq Hash
+      expect(@app.to_hash.has_key?(:name)).to be_truthy
+      expect(@app.to_hash.has_key?(:size)).to be_truthy
+      expect(@app.to_hash.has_key?(:version)).to be_truthy
+      expect(@app.to_hash.has_key?(:developer)).to be_truthy
+      expect(@app.to_hash.has_key?(:locales)).to be_truthy
+      expect(@app.to_hash.has_key?(:icons)).to be_truthy
+
+      expect(@app.to_hash.has_key?(:package_path)).to be_falsey
+    end
+
     it 'raise' do
       expect{ FirefoxZip.analyze('') }.to raise_error
     end

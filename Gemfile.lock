@@ -1,8 +1,8 @@
 PATH
   remote: .
   specs:
-    firefox_zip (0.0.2)
-      rubyzip
+    firefox_zip (0.0.3)
+      rubyzip (~> 1.1)
 
 GEM
   remote: https://rubygems.org/
@@ -28,5 +28,5 @@ PLATFORMS
 
 DEPENDENCIES
   firefox_zip!
-  rake
-  rspec (~> 3.1.0)
+  rake (~> 10.4)
+  rspec (~> 3.1)

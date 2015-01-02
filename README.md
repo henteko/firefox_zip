@@ -33,6 +33,8 @@ app.type           # [String] app type
 app.permissions    # [Array] app permissions
 app.version        # [String] app version
 app.size           # [Fixnum] app zip file size
+
+app.to_hash        # [Hash] app info to hash
 ```
 
 ## License

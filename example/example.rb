@@ -15,3 +15,4 @@ p app.locales        # [Hash] app locales
 p app.version        # [String] app version
 p app.size           # [Fixnum] app zip file size
 
+p app.to_hash        # [Hash] app info to hash
