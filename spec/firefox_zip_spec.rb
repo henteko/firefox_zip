@@ -37,6 +37,14 @@ describe FirefoxZip do
     it 'get developer' do
       expect(@app.developer).not_to be_nil
     end
+
+    it 'get locales' do
+      expect(@app.locales).not_to be_nil
+    end
+    
+    it 'get default_locale' do
+      expect(@app.default_locale).not_to be_nil
+    end
     
     it 'raise' do
       expect{ FirefoxZip.analyze('') }.to raise_error

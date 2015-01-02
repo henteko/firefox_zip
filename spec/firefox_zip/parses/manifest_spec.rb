@@ -45,6 +45,14 @@ describe FirefoxZip::Parses::Manifest do
                                              "url"  => "http://henteko07.com")
     end
 
+    it 'get locales' do
+      expect(@manifest.locales).to include("ja" => {"name" => "test", "description" => "test"})
+    end
+    
+    it 'get default_locale' do
+      expect(@manifest.default_locale).to eq 'ja'
+    end
+
     it 'blank' do
       expect{ FirefoxZip::Parses::Manifest.new('') }.to raise_error
     end

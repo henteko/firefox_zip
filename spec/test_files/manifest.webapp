@@ -13,5 +13,16 @@
     "url": "http://henteko07.com"
   },
   "type": "privileged",
-  "permissions": {}
+  "permissions": {},
+  "default_locale": "ja",
+  "locales": {
+    "it": {
+      "name": "L'Open Web",
+      "description": "Eccitante azione di sviluppo web open!"
+    },
+    "ja": {
+      "name": "test",
+      "description": "test"
+    }
+  }
 }
