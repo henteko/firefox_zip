@@ -33,6 +33,10 @@ describe FirefoxZip do
     it 'get permissions' do
       expect(@app.permissions).to match []
     end
+
+    it 'get developer' do
+      expect(@app.developer).not_to be_nil
+    end
     
     it 'raise' do
       expect{ FirefoxZip.analyze('') }.to raise_error

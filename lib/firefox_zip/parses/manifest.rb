@@ -3,7 +3,7 @@ require 'json'
 module FirefoxZip
   module Parses
     class Manifest
-      attr_reader :name, :description, :launch_path, :icons, :icon, :type, :permissions
+      attr_reader :name, :description, :launch_path, :icons, :icon, :type, :permissions, :developer
 
       def initialize(manifest_data)
         data = JSON.parse(manifest_data)
@@ -15,6 +15,7 @@ module FirefoxZip
         @icon = data['icons']['16']
         @type = data['type']
         @permissions = data['permissions']
+        @developer = data['developer']
       end
     end
   end

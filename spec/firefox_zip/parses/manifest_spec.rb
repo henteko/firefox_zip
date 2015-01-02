@@ -40,6 +40,11 @@ describe FirefoxZip::Parses::Manifest do
       expect(@manifest.permissions).to match []
     end
     
+    it 'get developer' do
+      expect(@manifest.developer).to include("name" => "henteko",
+                                             "url"  => "http://henteko07.com")
+    end
+
     it 'blank' do
       expect{ FirefoxZip::Parses::Manifest.new('') }.to raise_error
     end
