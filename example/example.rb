@@ -9,4 +9,9 @@ p app.icon        # [File] app default icon
 p app.icons       # [Array] app icons
 p app.type        # [String] app type
 p app.permissions # [Array] app permissons
+p app.developer   # [Hash] app developer info
+p app.default_locale # [String] app default locale
+p app.locales        # [Hash] app locales
+p app.version        # [String] app version
+p app.size           # [Fixnum] app zip file size
 
