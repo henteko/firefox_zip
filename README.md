@@ -19,7 +19,7 @@ $ bundle install
 ```rb
 require 'firefox_zip'
 
-app = FirefoxZip.analyze('/path/to/firefox_app.zip', valid: true) # valid default true
+app = FirefoxZip.analyze('/path/to/firefox_app.zip', valid: true) # valid default false
 
 app.name           # [String] app name
 app.description    # [String] app description

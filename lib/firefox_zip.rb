@@ -10,7 +10,7 @@ module FirefoxZip
                 :version, :size
 
     def analyze(file_path, option={})
-      valid = option[:valid] != nil ? option[:valid] : true
+      valid = option[:valid] != nil ? option[:valid] : false
 
       @project = Files::Project.new(file_path)
       @name = @project.manifest_data.name
