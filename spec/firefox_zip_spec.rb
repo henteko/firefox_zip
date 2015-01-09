@@ -70,4 +70,10 @@ describe FirefoxZip do
       expect{ FirefoxZip.analyze('') }.to raise_error
     end
   end
+
+  context 'self.analyze valid false' do
+    it 'not raise error' do
+      expect { FirefoxZip.analyze(File.expand_path('../test_files/error_package.zip', __FILE__), valid: false) }.not_to raise_error
+    end
+  end
 end

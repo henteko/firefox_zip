@@ -1,5 +1,6 @@
 require 'firefox_zip/parses/manifest'
 require 'firefox_zip/files/project'
+require 'firefox_zip/valid'
 
 module FirefoxZip
   class << self
@@ -8,7 +9,9 @@ module FirefoxZip
                 :developer, :locales, :default_locale,
                 :version, :size
 
-    def analyze(file_path)
+    def analyze(file_path, option={})
+      valid = option[:valid] != nil ? option[:valid] : true
+
       @project = Files::Project.new(file_path)
       @name = @project.manifest_data.name
       @description = @project.manifest_data.description
@@ -22,6 +25,8 @@ module FirefoxZip
       @default_locale = @project.manifest_data.default_locale
       @version = @project.manifest_data.version
       @size = @project.size
+
+      FirefoxZip::Valid.run(file_path) if valid
 
       self
     end
