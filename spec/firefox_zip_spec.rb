@@ -70,4 +70,18 @@ describe FirefoxZip do
       expect{ FirefoxZip.analyze('') }.to raise_error
     end
   end
+
+  context 'self.analyze valid false' do
+    before do
+      @status, stdout, stderr = systemu 'app-validator --help'
+    end
+
+    it 'not raise error' do
+      expect { FirefoxZip.analyze(File.expand_path('../test_files/error_package.zip', __FILE__)) }.not_to raise_error if @status.exitstatus == 0
+    end
+
+    it 'raise error' do
+      expect { FirefoxZip.analyze(File.expand_path('../test_files/error_package.zip', __FILE__), valid: true) }.to raise_error if @status.exitstatus == 0
+    end
+  end
 end
