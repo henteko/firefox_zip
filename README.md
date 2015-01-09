@@ -19,7 +19,7 @@ $ bundle install
 ```rb
 require 'firefox_zip'
 
-app = FirefoxZip.analyze('/path/to/firefox_app.zip')
+app = FirefoxZip.analyze('/path/to/firefox_app.zip', valid: true) # valid default true
 
 app.name           # [String] app name
 app.description    # [String] app description
@@ -36,6 +36,9 @@ app.size           # [Fixnum] app zip file size
 
 app.to_hash        # [Hash] app info to hash
 ```
+
+## Validation
+Use [app-validator](https://github.com/mozilla/app-validator) tool.
 
 ## License
 MIT
